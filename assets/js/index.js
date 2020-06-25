@@ -43,7 +43,7 @@ function renderUserimg(option) {
         $('.layui-nav-img').attr('src', option.data.user_pic).show();
         $('.text-avatar').hide();
     } else {
-        $('.text-avatar').show();
+        $('.text-avatar').html(name[0].toUpperCase()).show();
         $('.layui-nav-img').hide();
     }
 }
