@@ -1,6 +1,6 @@
 $(function() {
 
-    // login页面 登录/注册页面切换
+    // 登录/注册页面切换
     $('#goReg').click(function() {
         $('#isregister').show();
         $('#islogin').hide();
@@ -10,7 +10,7 @@ $(function() {
         $('#isregister').hide();
     })
 
-    // login页面 表单验证
+    // 表单验证
     let form = layui.form;
     form.verify({
         username: function(value, item) {
@@ -39,5 +39,45 @@ $(function() {
                 return '两次输入的密码不一致!';
             }
         }
+    });
+
+
+    let layer = layui.layer;
+    // 注册/登录 提交
+    $("#form_reg").on('submit', function(e) {
+        // 阻止默认行为
+        e.preventDefault();
+        let data = {
+            username: $("#form_reg [name=username]").val(),
+            password: $("#form_reg [name=password]").val()
+        };
+        $.post('http://ajax.frontend.itheima.net/api/reguser', data, function(res) {
+            if (res.status !== 0) {
+                console.log(res);
+                return layer.msg(res.message);
+            }
+            layer.msg('注册成功!请登录');
+            // 自动跳转登录页面
+            $("#golog").click();
+        })
+    });
+    $("#form_log").on('submit', function(e) {
+        // 阻止默认行为
+        e.preventDefault();
+        let data = {
+            username: $("#form_log [name=username]").val(),
+            password: $("#form_log [name=password]").val()
+        };
+        $.post('http://ajax.frontend.itheima.net/api/login', data, function(res) {
+            if (res.status !== 0) {
+                console.log(res);
+                return layer.msg(res.message);
+            }
+            layer.msg(res.message);
+            // 将登录成功得到的 token 字符串，保存到 localStorage 中
+            localStorage.setItem('token', res.token);
+            // 跳转到后台主页
+            location.href = '/index.html';
+        })
     });
 })

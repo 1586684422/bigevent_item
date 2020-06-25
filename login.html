@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大事件项目—登录/注册</title>
+    <title>大事件—登录/注册</title>
     <!-- 引入Layui样式 -->
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
     <!-- 引入login样式 -->
@@ -28,7 +28,7 @@
 
         <!-- login -->
         <div class="form_bd" id="islogin">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" id="form_log">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -43,7 +43,7 @@
 
                 <!-- 登录按钮 -->
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>登 录</button>
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit id="btnLog">登 录</button>
                 </div>
 
                 <!-- 跳转至注册 -->
@@ -57,7 +57,7 @@
 
         <!-- register -->
         <div class="form_bd" id="isregister">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" id="form_reg">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -78,7 +78,7 @@
 
                 <!-- 登录按钮 -->
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>注 册</button>
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit id="btnReg">注 册</button>
                 </div>
 
                 <!-- 跳转至登录 -->
