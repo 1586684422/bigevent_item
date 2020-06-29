@@ -21,7 +21,7 @@ function getUserlogin() {
         type: 'get',
         url: '/my/userinfo',
         success: function(res) {
-            console.log(res);
+            // console.log(res);
             if (res.status !== 1 && res.message !== "身份认证失败！") {
                 // 身份认证成功
 
